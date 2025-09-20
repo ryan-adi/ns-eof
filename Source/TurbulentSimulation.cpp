@@ -5,7 +5,6 @@
 #include "Solvers/PetscSolver.hpp"
 #include "Solvers/SORSolver.hpp"
 
-// TODO most functions are copied from Simulation.cpp. needed changes
 
 // UNCHANGED from Simulation.cpp
 TurbulentSimulation::TurbulentSimulation(Parameters& parameters, TurbulentFlowField& turbFlowField):

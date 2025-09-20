@@ -88,7 +88,7 @@ int main(int argc, char* argv[]) {
     if (rank == 0) {
       spdlog::info("Start Turbulent simulation in {}D", parameters.geometry.dim);
     }
-    TurbulentFlowField* TurbflowField = new TurbulentFlowField(parameters); // RA: shadowing ok ??
+    TurbulentFlowField* TurbflowField = new TurbulentFlowField(parameters);
     if (TurbflowField == NULL) {
       throw std::runtime_error("turbFlowField == NULL!");
     }

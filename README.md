@@ -1,11 +1,5 @@
 # NS-EOF: Navier Stokes - Ernst-Otto-Fischer Teaching Code
 
-## TLDR build and make
-mkdir build
-cd build
-cmake .. -DCMAKE_BUILD_TYPE=Release -DENABLE_PETSC=ON -DENABLE_DEVELOPER_MODE=ON
-make 
-make test
 
 ## General Information
 This code has been tested under Ubuntu 20.04 or higher. Other Linux distributions will probably work. However, we do not recommend using Windows or MacOS. If you do not have Linux installed on your computer, please use WSL, Virtual Machine, or similar.
@@ -69,3 +63,10 @@ Instead of using `make`, run `VERBOSE=1 make`. You can also run `make -n` to inv
 
 ### How can I see the test output?
 Instead of using `make test`, run `ctest --verbose`.
+
+## TLDR build and make
+mkdir build
+cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release -DENABLE_PETSC=ON -DENABLE_DEVELOPER_MODE=ON
+make 
+make test

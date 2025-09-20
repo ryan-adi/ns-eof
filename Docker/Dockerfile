@@ -18,7 +18,7 @@ RUN mkdir /opt/spack-environment \
 RUN cd /opt/spack-environment && spack env activate . && spack install --fail-fast && spack gc -y
 RUN cd /opt/spack-environment && spack env activate --sh -d . > activate.sh
 
-FROM ubuntu:latest
+FROM ubuntu:22.04
 LABEL NS-EOF=https://github.com/TUM-I5/NS-EOF
 
 ENV FORCE_UNSAFE_CONFIGURE=1 \
@@ -98,7 +98,7 @@ libxml2-dev \
 libbz2-dev \
 libxslt1-dev \
 libelf-dev \
-libtbb2 \
+libtbbmalloc2 \
 libtbb-dev \
 libsimde-dev \
 libcurl4-openssl-dev \

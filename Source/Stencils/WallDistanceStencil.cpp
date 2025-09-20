@@ -17,7 +17,7 @@ Stencils::WallDistanceStencil::WallDistanceStencil(const Parameters& parameters)
 
 void Stencils::WallDistanceStencil::apply(TurbulentFlowField& flowField, int i, int j) {
   const int      obstacle = flowField.getFlags().getValue(i, j);
-  // Load local velocities into the center layer of the local array RA: TODO use local velocity ???
+  // Load local velocities into the center layer of the local array
   
   const RealType posX     = parameters_.meshsize->getPosX(i, j) + 0.5 * parameters_.meshsize->getDx(i,j); // x-pos left bottom front node
   const RealType posY     = parameters_.meshsize->getPosY(i, j) + 0.5 * parameters_.meshsize->getDy(i,j); // y-pos left bottom front node
@@ -67,11 +67,9 @@ if ((obstacle & OBSTACLE_SELF) == 0) {
       //distance from ceiling->(Y_max_-posY)
       //diagonal distance from the corner point->diag
       //distance from the floor->PosY
-      wallDistance.getScalar(i, j) =  std::min(std::min(posY,(Y_max_-posY)), diag);
+      wallDistance.getScalar(i, j) = std::min({posY, (Y_max_-posY), diag});
     } 
-  
-    }
-
+  }
 }
 }else{
    wallDistance.getScalar(i, j) = 0.0;//MY_FLOAT_MAX;
@@ -81,7 +79,7 @@ if ((obstacle & OBSTACLE_SELF) == 0) {
 // TODO 3D case not done
 void Stencils::WallDistanceStencil::apply(TurbulentFlowField& flowField, int i, int j, int k) {
   const int      obstacle = flowField.getFlags().getValue(i, j,k);
-  // Load local velocities into the center layer of the local array RA: TODO use local velocity ???
+  // Load local velocities into the center layer of the local array
   
   const RealType posX     = parameters_.meshsize->getPosX(i, j, k) + 0.5 * parameters_.meshsize->getDx(i,j,k); // x-pos left bottom front node
   const RealType posY     = parameters_.meshsize->getPosY(i, j, k) + 0.5 * parameters_.meshsize->getDy(i,j,k); // y-pos left bottom front node
